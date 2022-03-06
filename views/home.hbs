@@ -1,0 +1,46 @@
+<div class="row">
+<div class="col-6"><h1>Users</h1></div>
+<div class="col-6 d-flex justify-content-end" >
+  <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ add user</a>
+  {{!-- con el href parece que vamos a la ruta seleccionada mediante el método GET --}}
+</div>
+
+</div>
+
+
+<table class="table table-bordered">
+  <thead >
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">email</th>
+      <th scope="col">Phone</th>
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.firstName}}</td>
+      <td>{{this.lastName}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.email}}</td>
+      <td class="text-end">
+          <a href="/viewuser/{{this.id}}" type= "button" class="btn btn-light btn-small ">  <i class="bi bi-eye"></i> View</a>
+          <a href="/edituser/{{this.id}}" type= "button" class="btn btn-light btn-small ">  <i class="bi bi-pencil"></i> Edit</a>
+          <a href="/{{this.id}}" type= "button" class="btn btn-light btn-small ">  <i class="bi bi-person-x"></i> Delete</a>
+      </td>
+    </tr>
+{{/each}}
+
+  </tbody>
+</table>
+
+
+<p>los nombres son: {{names}} </p>
+{{!-- como se que solo tiene una row puedo usar el primer registro (y el único) con .0 --}}
+{{!-- {{#each name}}{{this.listaName}}{{/each}} --}}
